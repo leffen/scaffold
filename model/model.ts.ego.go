@@ -27,7 +27,7 @@ func tsTypeForField(f ast.Field) string {
 		return "string"
 	case "bool":
 		return "boolean"
-	case "time.Time":
+	case "time.Time","*time.Time":
 		return "Date"
 	default:
 		return tsTypeForSQLType(f)

@@ -1,6 +1,6 @@
 <%
   package model
-  
+
  import (
   "strings"
   "github.com/boourns/scaffold/ast"
@@ -12,7 +12,7 @@
 //arrays and slices aren't handled properly.
 func tsTypeForField(f ast.Field) string {
     switch f.Type {
-        case "int", "int8", "int16",  "int32",  "int64", "uint", "uint8", "uint16", "uint32", "uint64", "uintptr", "byte", "rune", "float32", "float64": 
+        case "int", "int8", "int16",  "int32",  "int64", "uint", "uint8", "uint16", "uint32", "uint64", "uintptr", "byte", "rune", "float32", "float64":
             return "number"
         case "string":
             return "string"
@@ -20,9 +20,9 @@ func tsTypeForField(f ast.Field) string {
             return "boolean"
         case "time.Time":
             return "Date"
-        default: 
+        default:
             return tsTypeForSQLType(f)
-    } 
+    }
 }
 
 func tsTypeForSQLType(f ast.Field) string {
@@ -64,4 +64,4 @@ class <%== m.Name %> {
   static SelectByID: string = `SELECT <%==fieldsByColumnDescriptions(m)%> FROM <%== m.Name %> WHERE ID=?`
 }
 export default <%== m.Name %>
-<%}%> 
+<%}%>

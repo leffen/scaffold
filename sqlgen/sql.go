@@ -12,6 +12,8 @@ func sqlType(field ast.Field) string {
 		return override
 	}
 
+	fmt.Printf("FIELD: %#v\n", field)
+
 	var sql string
 	switch field.Type {
 	case "string", "[]byte":
